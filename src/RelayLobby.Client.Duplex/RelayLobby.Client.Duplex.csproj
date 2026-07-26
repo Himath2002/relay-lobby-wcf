@@ -12,6 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System.ServiceModel" />
     <ProjectReference Include="../RelayLobby.Contracts/RelayLobby.Contracts.csproj" />
     <ProjectReference Include="../RelayLobby.Domain/RelayLobby.Domain.csproj" />
