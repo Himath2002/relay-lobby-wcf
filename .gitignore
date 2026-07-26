@@ -1,0 +1,35 @@
+# Visual Studio and user state
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build and test output
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+[Tt]est[Rr]esults/
+artifacts/
+*.binlog
+*.pdb
+
+# Package restore output
+packages/
+*.nupkg
+*.snupkg
+
+# IDE and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Local diagnostics and secrets
+*.log
+*.svclog
+*.pfx
+*.snk
