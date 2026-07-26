@@ -1,0 +1,85 @@
+<Window
+    x:Class="RelayLobby.Client.Polling.PrivateChatWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="RelayLobby · Polling private chat"
+    Width="760"
+    Height="620"
+    MinWidth="620"
+    MinHeight="500"
+    ResizeMode="CanResizeWithGrip"
+    WindowStartupLocation="CenterOwner">
+
+    <Grid Margin="26">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="170" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="0,0,0,16">
+            <TextBlock Style="{StaticResource EyebrowText}" Text="PRIVATE CHANNEL" />
+            <TextBlock
+                Margin="0,6,0,0"
+                Style="{StaticResource HeadingText}"
+                Text="Direct conversation" />
+        </StackPanel>
+
+        <ListBox
+            x:Name="lstPrivateMessages"
+            Grid.Row="1" />
+
+        <Grid Grid.Row="2" Margin="0,12,0,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBox
+                x:Name="txtPrivateMsg"
+                MaxLength="500" />
+            <Button
+                Grid.Column="1"
+                Margin="10,0,0,0"
+                Click="SendPrivate_Click"
+                Content="Send"
+                Style="{StaticResource PrimaryButton}" />
+        </Grid>
+
+        <GroupBox Grid.Row="3" Header="Shared privately">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <ListBox
+                    x:Name="lstPrivateFiles"
+                    BorderThickness="0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <Hyperlink Click="Hyperlink_DownloadFile_Click">
+                                    <Run Text="{Binding FileName}" />
+                                </Hyperlink>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Button
+                    Grid.Row="1"
+                    Margin="0,8,0,0"
+                    HorizontalAlignment="Left"
+                    Click="SendPrivateFile_Click"
+                    Content="Send file" />
+            </Grid>
+        </GroupBox>
+
+        <Button
+            Grid.Row="4"
+            Margin="0,14,0,0"
+            HorizontalAlignment="Right"
+            Click="ExitPrivateChat_Click"
+            Content="Close chat" />
+    </Grid>
+</Window>

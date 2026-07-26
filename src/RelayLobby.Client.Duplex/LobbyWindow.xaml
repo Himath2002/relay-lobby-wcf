@@ -1,0 +1,77 @@
+<Window
+    x:Class="RelayLobby.Client.Duplex.LobbyWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="RelayLobby · Duplex lobby"
+    Width="960"
+    Height="650"
+    MinWidth="720"
+    MinHeight="520"
+    Loaded="Window_Loaded"
+    ResizeMode="CanResizeWithGrip"
+    WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="34">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <StackPanel>
+                <TextBlock Style="{StaticResource EyebrowText}" Text="DUPLEX CLIENT" />
+                <TextBlock
+                    Margin="0,8,0,0"
+                    Style="{StaticResource HeadingText}"
+                    Text="Available rooms" />
+                <TextBlock
+                    Margin="0,6,0,0"
+                    Style="{StaticResource MutedText}"
+                    Text="Create a room or join an active conversation." />
+            </StackPanel>
+            <Button
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Click="Logout_Click"
+                Content="Sign out" />
+        </Grid>
+
+        <TextBox
+            x:Name="txtSearch"
+            Grid.Row="1"
+            Width="360"
+            Margin="0,26,0,14"
+            HorizontalAlignment="Left"
+            TextChanged="txtSearch_TextChanged"
+            ToolTip="Filter rooms by name" />
+
+        <ListBox
+            x:Name="lstRooms"
+            Grid.Row="2"
+            ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ListBox.RenderTransform>
+                <ScaleTransform
+                    x:Name="RoomListScale"
+                    ScaleX="1"
+                    ScaleY="1" />
+            </ListBox.RenderTransform>
+        </ListBox>
+
+        <StackPanel
+            Grid.Row="3"
+            Margin="0,18,0,0"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+            <Button
+                Margin="0,0,10,0"
+                Click="CreateRoom_Click"
+                Content="Create room" />
+            <Button
+                Click="JoinRoom_Click"
+                Content="Join selected room"
+                Style="{StaticResource PrimaryButton}" />
+        </StackPanel>
+    </Grid>
+</Window>

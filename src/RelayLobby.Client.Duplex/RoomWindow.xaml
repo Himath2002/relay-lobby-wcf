@@ -1,0 +1,147 @@
+<Window
+    x:Class="RelayLobby.Client.Duplex.RoomWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="RelayLobby · Duplex room"
+    Width="1080"
+    Height="720"
+    MinWidth="820"
+    MinHeight="580"
+    ResizeMode="CanResizeWithGrip"
+    WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="28">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.3*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="180" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.ColumnSpan="2" Margin="0,0,0,18">
+            <TextBlock Style="{StaticResource EyebrowText}" Text="DUPLEX ROOM" />
+            <TextBlock
+                x:Name="txtRoomName"
+                Margin="0,6,0,0"
+                Style="{StaticResource HeadingText}"
+                Text="Conversation room" />
+            <StackPanel Margin="0,7,0,0" Orientation="Horizontal">
+                <TextBlock Style="{StaticResource MutedText}" Text="Connected " />
+                <TextBlock
+                    x:Name="txtLobbyTimer"
+                    Foreground="{StaticResource AccentBrush}"
+                    Text="00:00:00" />
+                <TextBlock
+                    Margin="18,0,0,0"
+                    Style="{StaticResource MutedText}"
+                    Text="Participants " />
+                <TextBlock
+                    x:Name="txtPlayerCount"
+                    Foreground="{StaticResource AccentBrush}"
+                    Text="0" />
+            </StackPanel>
+        </StackPanel>
+
+        <ListBox
+            x:Name="lstMessages"
+            Grid.Row="1"
+            Margin="0,0,14,0" />
+
+        <Border
+            Grid.Row="1"
+            Grid.Column="1"
+            Padding="12"
+            Background="{StaticResource SurfaceBrush}"
+            BorderBrush="{StaticResource BorderBrush}"
+            BorderThickness="1"
+            CornerRadius="8">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Margin="4,0,0,10"
+                    FontSize="14"
+                    FontWeight="SemiBold"
+                    Foreground="{StaticResource TextSecondaryBrush}"
+                    Text="Participants" />
+                <ListBox
+                    x:Name="lstPlayers"
+                    Grid.Row="1"
+                    BorderThickness="0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding DisplayName}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Button
+                    Grid.Row="2"
+                    Margin="0,10,0,0"
+                    Click="PrivateMsg_Click"
+                    Content="Open private chat" />
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="2" Margin="0,14,14,14">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBox
+                x:Name="txtMessage"
+                MaxLength="500" />
+            <Button
+                Grid.Column="1"
+                Margin="10,0,0,0"
+                Click="SendMessage_Click"
+                Content="Send"
+                Style="{StaticResource PrimaryButton}" />
+        </Grid>
+
+        <Button
+            Grid.Row="2"
+            Grid.Column="1"
+            Margin="0,14,0,14"
+            VerticalAlignment="Center"
+            Click="LeaveRoom_Click"
+            Content="Leave room" />
+
+        <GroupBox
+            Grid.Row="3"
+            Grid.ColumnSpan="2"
+            Header="Shared files">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <ListBox
+                    x:Name="lstFiles"
+                    BorderThickness="0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <Hyperlink Click="Hyperlink_DownloadFile_Click">
+                                    <Run Text="{Binding FileName}" />
+                                </Hyperlink>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Button
+                    Grid.Row="1"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Left"
+                    Click="UploadFile_Click"
+                    Content="Upload file" />
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
