@@ -1,0 +1,39 @@
+name: Windows build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Compile complete solution
+    runs-on: windows-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Add MSBuild to PATH
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Restore and rebuild
+        run: >
+          msbuild RelayLobby.sln
+          /restore
+          /t:Rebuild
+          /p:Configuration=Release
+          /p:ContinuousIntegrationBuild=true
+          /m

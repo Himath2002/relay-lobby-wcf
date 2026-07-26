@@ -1,0 +1,111 @@
+<svg width="1440" height="880" viewBox="0 0 1440 880" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1440" y2="880" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7FAFC"/>
+      <stop offset="1" stop-color="#EDF4F5"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="10" stdDeviation="13" flood-color="#263C4F" flood-opacity="0.12"/>
+    </filter>
+    <marker id="tealArrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M1 1L11 6L1 11V1Z" fill="#148C78"/>
+    </marker>
+    <marker id="blueArrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M1 1L11 6L1 11V1Z" fill="#3B82B7"/>
+    </marker>
+  </defs>
+
+  <rect width="1440" height="880" rx="28" fill="url(#bg)"/>
+  <text x="72" y="78" fill="#153247" font-family="Inter, Segoe UI, sans-serif" font-size="36" font-weight="700">Architecture with explicit communication boundaries</text>
+  <text x="72" y="112" fill="#5A6E7D" font-family="Inter, Segoe UI, sans-serif" font-size="18">Two WPF interaction models share one contract surface and one synchronized in-memory state.</text>
+
+  <text x="72" y="172" fill="#3B82B7" font-family="Inter, Segoe UI, sans-serif" font-size="14" font-weight="700" letter-spacing="1.6">WINDOWS CLIENTS</text>
+  <text x="547" y="172" fill="#148C78" font-family="Inter, Segoe UI, sans-serif" font-size="14" font-weight="700" letter-spacing="1.6">TRANSPORT + CONTRACTS</text>
+  <text x="1006" y="172" fill="#153247" font-family="Inter, Segoe UI, sans-serif" font-size="14" font-weight="700" letter-spacing="1.6">SERVICE HOST</text>
+
+  <g filter="url(#cardShadow)">
+    <rect x="72" y="198" width="388" height="230" rx="16" fill="#FFFFFF" stroke="#C9D8E3"/>
+    <rect x="94" y="220" width="105" height="28" rx="14" fill="#E8F3FA"/>
+    <text x="146.5" y="240" text-anchor="middle" fill="#3B82B7" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="700">POLLING</text>
+    <text x="94" y="287" fill="#153247" font-family="Inter, Segoe UI, sans-serif" font-size="25" font-weight="700">RelayLobby.Client.Polling</text>
+    <text x="94" y="321" fill="#5A6E7D" font-family="Inter, Segoe UI, sans-serif" font-size="16">DispatcherTimer-driven refresh</text>
+    <rect x="94" y="348" width="344" height="54" rx="9" fill="#F4F8FB" stroke="#D8E3EA"/>
+    <text x="112" y="371" fill="#3E5566" font-family="Inter, Segoe UI, sans-serif" font-size="14" font-weight="600">Lobby</text>
+    <text x="173" y="371" fill="#728492" font-family="Inter, Segoe UI, sans-serif" font-size="14">1 s</text>
+    <text x="233" y="371" fill="#3E5566" font-family="Inter, Segoe UI, sans-serif" font-size="14" font-weight="600">Room</text>
+    <text x="289" y="371" fill="#728492" font-family="Inter, Segoe UI, sans-serif" font-size="14">3 s</text>
+    <text x="340" y="371" fill="#3E5566" font-family="Inter, Segoe UI, sans-serif" font-size="14" font-weight="600">Private</text>
+    <text x="400" y="371" fill="#728492" font-family="Inter, Segoe UI, sans-serif" font-size="14">1 s</text>
+    <text x="112" y="392" fill="#728492" font-family="Inter, Segoe UI, sans-serif" font-size="12">Explicit request → response updates</text>
+  </g>
+
+  <g filter="url(#cardShadow)">
+    <rect x="72" y="458" width="388" height="230" rx="16" fill="#FFFFFF" stroke="#C9D8E3"/>
+    <rect x="94" y="480" width="105" height="28" rx="14" fill="#E5F6F1"/>
+    <text x="146.5" y="500" text-anchor="middle" fill="#148C78" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="700">DUPLEX</text>
+    <text x="94" y="547" fill="#153247" font-family="Inter, Segoe UI, sans-serif" font-size="25" font-weight="700">RelayLobby.Client.Duplex</text>
+    <text x="94" y="581" fill="#5A6E7D" font-family="Inter, Segoe UI, sans-serif" font-size="16">ILobbyCallback-driven room state</text>
+    <rect x="94" y="608" width="344" height="54" rx="9" fill="#F4F8FB" stroke="#D8E3EA"/>
+    <text x="112" y="631" fill="#3E5566" font-family="Inter, Segoe UI, sans-serif" font-size="14" font-weight="600">Push</text>
+    <text x="151" y="631" fill="#728492" font-family="Inter, Segoe UI, sans-serif" font-size="14">messages · files · roster</text>
+    <text x="112" y="652" fill="#728492" font-family="Inter, Segoe UI, sans-serif" font-size="12">5 s lobby-directory sync only</text>
+  </g>
+
+  <g filter="url(#cardShadow)">
+    <rect x="547" y="198" width="348" height="490" rx="16" fill="#FFFFFF" stroke="#BDD9D3"/>
+    <circle cx="589" cy="240" r="18" fill="#E5F6F1"/>
+    <path d="M580 240H598M589 231V249" stroke="#148C78" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="619" y="247" fill="#153247" font-family="Inter, Segoe UI, sans-serif" font-size="23" font-weight="700">Shared boundary</text>
+
+    <rect x="573" y="281" width="296" height="72" rx="10" fill="#F0F8F6" stroke="#C8E7DF"/>
+    <text x="595" y="311" fill="#148C78" font-family="Inter, Segoe UI, sans-serif" font-size="14" font-weight="700">NET.TCP · SECURITYMODE.NONE</text>
+    <text x="595" y="335" fill="#5A6E7D" font-family="Inter, Segoe UI, sans-serif" font-size="14">localhost:8100 · buffered · bounded</text>
+
+    <rect x="573" y="379" width="296" height="74" rx="10" fill="#F7FAFC" stroke="#D8E3EA"/>
+    <text x="595" y="408" fill="#153247" font-family="Inter, Segoe UI, sans-serif" font-size="16" font-weight="700">ILobbyService</text>
+    <text x="595" y="433" fill="#5A6E7D" font-family="Inter, Segoe UI, sans-serif" font-size="14">commands + query operations</text>
+
+    <rect x="573" y="469" width="296" height="74" rx="10" fill="#F7FAFC" stroke="#D8E3EA"/>
+    <text x="595" y="498" fill="#153247" font-family="Inter, Segoe UI, sans-serif" font-size="16" font-weight="700">ILobbyDuplexService</text>
+    <text x="595" y="523" fill="#5A6E7D" font-family="Inter, Segoe UI, sans-serif" font-size="14">base operations + callback contract</text>
+
+    <rect x="573" y="559" width="296" height="103" rx="10" fill="#F7FAFC" stroke="#D8E3EA"/>
+    <text x="595" y="588" fill="#153247" font-family="Inter, Segoe UI, sans-serif" font-size="16" font-weight="700">TransportConfiguration</text>
+    <text x="595" y="613" fill="#5A6E7D" font-family="Inter, Segoe UI, sans-serif" font-size="14">500-character messages</text>
+    <text x="595" y="637" fill="#5A6E7D" font-family="Inter, Segoe UI, sans-serif" font-size="14">10 MB files · 12 MB transport ceiling</text>
+  </g>
+
+  <g filter="url(#cardShadow)">
+    <rect x="982" y="198" width="386" height="490" rx="16" fill="#153247" stroke="#153247"/>
+    <text x="1010" y="242" fill="#7DE0CA" font-family="Inter, Segoe UI, sans-serif" font-size="13" font-weight="700" letter-spacing="1.4">RELAYLOBBY.SERVER</text>
+    <text x="1010" y="283" fill="#FFFFFF" font-family="Inter, Segoe UI, sans-serif" font-size="27" font-weight="700">LobbyService</text>
+    <text x="1010" y="313" fill="#B9CAD6" font-family="Inter, Segoe UI, sans-serif" font-size="15">singleton state coordinator</text>
+
+    <rect x="1010" y="344" width="330" height="78" rx="10" fill="#1D4055"/>
+    <text x="1032" y="375" fill="#FFFFFF" font-family="Inter, Segoe UI, sans-serif" font-size="16" font-weight="700">Synchronized state</text>
+    <text x="1032" y="400" fill="#BCD0DB" font-family="Inter, Segoe UI, sans-serif" font-size="14">players · rooms · messages · files</text>
+
+    <rect x="1010" y="438" width="330" height="78" rx="10" fill="#1D4055"/>
+    <text x="1032" y="469" fill="#FFFFFF" font-family="Inter, Segoe UI, sans-serif" font-size="16" font-weight="700">Callback registry</text>
+    <text x="1032" y="494" fill="#BCD0DB" font-family="Inter, Segoe UI, sans-serif" font-size="14">case-insensitive · fault-aware cleanup</text>
+
+    <rect x="1010" y="532" width="330" height="128" rx="10" fill="#1D4055"/>
+    <text x="1032" y="563" fill="#FFFFFF" font-family="Inter, Segoe UI, sans-serif" font-size="16" font-weight="700">Server-enforced rules</text>
+    <text x="1032" y="590" fill="#BCD0DB" font-family="Inter, Segoe UI, sans-serif" font-size="14">unique usernames + room names</text>
+    <text x="1032" y="614" fill="#BCD0DB" font-family="Inter, Segoe UI, sans-serif" font-size="14">same-room private communication</text>
+    <text x="1032" y="638" fill="#BCD0DB" font-family="Inter, Segoe UI, sans-serif" font-size="14">recipient-filtered private callbacks</text>
+  </g>
+
+  <path d="M460 313H525" stroke="#3B82B7" stroke-width="2.5" stroke-dasharray="7 7" marker-end="url(#blueArrow)"/>
+  <path d="M525 374H460" stroke="#3B82B7" stroke-width="2.5" stroke-dasharray="7 7" marker-end="url(#blueArrow)"/>
+  <path d="M460 555H525" stroke="#148C78" stroke-width="2.5" marker-end="url(#tealArrow)"/>
+  <path d="M525 615H460" stroke="#3B82B7" stroke-width="2.5" marker-end="url(#blueArrow)"/>
+  <path d="M895 372H960" stroke="#148C78" stroke-width="2.5" marker-end="url(#tealArrow)"/>
+  <path d="M960 502H895" stroke="#3B82B7" stroke-width="2.5" marker-end="url(#blueArrow)"/>
+
+  <rect x="72" y="744" width="1296" height="80" rx="14" fill="#FFFFFF" stroke="#C9D8E3"/>
+  <text x="100" y="776" fill="#153247" font-family="Inter, Segoe UI, sans-serif" font-size="15" font-weight="700">DATA BOUNDARY</text>
+  <text x="100" y="803" fill="#5A6E7D" font-family="Inter, Segoe UI, sans-serif" font-size="15">RelayLobby.Domain carries DataContract models; room listings expose summaries only, while private payloads are filtered to sender and recipient.</text>
+  <rect x="1115" y="764" width="225" height="40" rx="20" fill="#E5F6F1"/>
+  <text x="1227.5" y="790" text-anchor="middle" fill="#148C78" font-family="Inter, Segoe UI, sans-serif" font-size="14" font-weight="700">IN-MEMORY · LOCAL DEMO</text>
+</svg>

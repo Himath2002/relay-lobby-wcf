@@ -1,0 +1,54 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="socialBg" x1="80" y1="20" x2="1200" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1220"/>
+      <stop offset="0.55" stop-color="#10283A"/>
+      <stop offset="1" stop-color="#132136"/>
+    </linearGradient>
+    <filter id="socialShadow" x="-20%" y="-30%" width="140%" height="170%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#050A12" flood-opacity="0.5"/>
+    </filter>
+    <marker id="socialArrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M1 1L11 6L1 11V1Z" fill="#26C6A5"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="640" fill="url(#socialBg)"/>
+  <circle cx="1110" cy="75" r="220" fill="#26C6A5" fill-opacity="0.05"/>
+  <circle cx="120" cy="610" r="260" fill="#67A9E4" fill-opacity="0.05"/>
+
+  <text x="76" y="82" fill="#26C6A5" font-family="Inter, Segoe UI, sans-serif" font-size="18" font-weight="700" letter-spacing="2.2">DISTRIBUTED DESKTOP SYSTEM</text>
+  <text x="76" y="161" fill="#F4F7FB" font-family="Inter, Segoe UI, sans-serif" font-size="66" font-weight="750">RelayLobby</text>
+  <text x="76" y="208" fill="#A9B8CC" font-family="Inter, Segoe UI, sans-serif" font-size="24">Polling and duplex WCF clients over one synchronized conversation core.</text>
+
+  <g filter="url(#socialShadow)">
+    <rect x="76" y="292" width="294" height="176" rx="16" fill="#111C2E" stroke="#2A3A54"/>
+    <rect x="99" y="316" width="92" height="28" rx="14" fill="#17314A"/>
+    <text x="145" y="336" text-anchor="middle" fill="#67A9E4" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="700">POLLING</text>
+    <text x="99" y="388" fill="#F4F7FB" font-family="Inter, Segoe UI, sans-serif" font-size="24" font-weight="650">Request state</text>
+    <path d="M101 430H322" stroke="#67A9E4" stroke-width="2" stroke-dasharray="7 7"/>
+  </g>
+
+  <g filter="url(#socialShadow)">
+    <rect x="493" y="270" width="294" height="220" rx="16" fill="#132539" stroke="#2E6158" stroke-width="1.5"/>
+    <circle cx="640" cy="325" r="25" fill="#173B36" stroke="#26C6A5"/>
+    <path d="M629 325H651M640 314V336" stroke="#26C6A5" stroke-width="3" stroke-linecap="round"/>
+    <text x="640" y="382" text-anchor="middle" fill="#F4F7FB" font-family="Inter, Segoe UI, sans-serif" font-size="24" font-weight="650">WCF service</text>
+    <text x="640" y="413" text-anchor="middle" fill="#9FB0C8" font-family="Inter, Segoe UI, sans-serif" font-size="15">localhost · Net.TCP · port 8100</text>
+    <rect x="540" y="442" width="200" height="26" rx="13" fill="#173B36"/>
+    <text x="640" y="460" text-anchor="middle" fill="#7DE0CA" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="700">THREAD-SAFE STATE</text>
+  </g>
+
+  <g filter="url(#socialShadow)">
+    <rect x="910" y="292" width="294" height="176" rx="16" fill="#111C2E" stroke="#2A3A54"/>
+    <rect x="933" y="316" width="92" height="28" rx="14" fill="#173B36"/>
+    <text x="979" y="336" text-anchor="middle" fill="#26C6A5" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="700">DUPLEX</text>
+    <text x="933" y="388" fill="#F4F7FB" font-family="Inter, Segoe UI, sans-serif" font-size="24" font-weight="650">Receive callbacks</text>
+    <path d="M935 430H1156" stroke="#26C6A5" stroke-width="2" marker-end="url(#socialArrow)"/>
+  </g>
+
+  <path d="M370 380H470" stroke="#67A9E4" stroke-width="2.5" stroke-dasharray="7 7"/>
+  <path d="M787 380H887" stroke="#26C6A5" stroke-width="2.5" marker-end="url(#socialArrow)"/>
+
+  <text x="76" y="566" fill="#DCE5F2" font-family="Inter, Segoe UI, sans-serif" font-size="17" font-weight="600">WPF · .NET Framework 4.8 · public/private messages · bounded file relay · room coordination</text>
+</svg>
